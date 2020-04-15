@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/csv"
-	"flag"
 	"fmt"
 	"os"
 	"strings"
@@ -14,13 +13,14 @@ type problem struct {
 }
 
 func main() {
-	csvFileName := flag.String("csv", "problems.csv", "some csv file that contains Q&As")
-	tie := flag.Int("time", 30, "time needed to answer the questions")
-	flag.Parse()
+	fmt.Printf("Please enter questions file's name: ")
 
-	file, err := os.Open(*csvFileName)
+	var questionFile string
+	_, err := fmt.Scanf("%s\n", &questionFile)
+
+	file, err := os.Open(questionFile)
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
 	r := csv.NewReader(file)
 	lines, err := r.ReadAll()
@@ -29,9 +29,17 @@ func main() {
 		exit("Couldn't parse csv file! :(")
 	}
 
+	fmt.Printf("Please enter the timer(in seconds): ")
+
+	var enteredTime int
+	_, err = fmt.Scanf("%d", &enteredTime)
+	if err != nil {
+		panic(err.Error())
+	}
+
 	problems := parseLines(lines)
 	correct := 0
-	for i, problem := range problems{
+	for i, problem := range problems {
 		fmt.Printf("Problem #%d: %s = \n", i+1, problem.q)
 
 		var answer string
