@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"github.com/AlecAivazis/survey/v2"
 	"os"
 	"strings"
 )
@@ -12,11 +13,35 @@ type problem struct {
 	a string
 }
 
+var qs = []*survey.Question{
+	{
+		Name:      "name",
+		Prompt:    &survey.Input{Message: "What is your name?"},
+		Validate:  survey.Required,
+		Transform: survey.Title,
+	},
+	{
+		Name: "fileName",
+		Prompt: &survey.Select{
+			Message: "Choose a game:",
+			Options: []string{"Math(easy)", "Math(medium)"},
+		},
+	},
+}
+
 func main() {
-	fmt.Printf("Please enter questions file's name: ")
+	answers := struct {
+		Name     string
+		FileName string `survey:"color"`
+	}{}
 
 	var questionFile string
-	_, err := fmt.Scanf("%s\n", &questionFile)
+	switch answers.FileName {
+	case "Math(easy)":
+		questionFile = "easy_problems.csv"
+	case "Math(medium)":
+		questionFile = "medium_problems.csv"
+	}
 
 	file, err := os.Open(questionFile)
 	if err != nil {
