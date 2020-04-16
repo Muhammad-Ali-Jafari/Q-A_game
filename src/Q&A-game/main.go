@@ -3,9 +3,10 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
-	"github.com/AlecAivazis/survey/v2"
 	"os"
 	"strings"
+
+	"github.com/AlecAivazis/survey/v2"
 )
 
 type problem struct {
@@ -35,23 +36,29 @@ func main() {
 		FileName string `survey:"color"`
 	}{}
 
+	err := survey.Ask(qs, &answers)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
 	var questionFile string
 	switch answers.FileName {
 	case "Math(easy)":
-		questionFile = "easy_problems.csv"
+		questionFile = "/home/mehrdad/Documents/Q-A_game/src/Q&A-game/easy_problems.csv"
 	case "Math(medium)":
-		questionFile = "medium_problems.csv"
+		questionFile = "/home/mehrdad/Documents/Q-A_game/src/Q&A-game/medium_problems.csv"
 	}
 
 	file, err := os.Open(questionFile)
 	if err != nil {
-		panic(err.Error())
+		fmt.Println(err)
 	}
 	r := csv.NewReader(file)
 	lines, err := r.ReadAll()
 
 	if err != nil {
-		exit("Couldn't parse csv file! :(")
+		fmt.Println("Couldn't parse csv file! :(")
 	}
 
 	fmt.Printf("Please enter the timer(in seconds): ")
@@ -59,13 +66,14 @@ func main() {
 	var enteredTime int
 	_, err = fmt.Scanf("%d", &enteredTime)
 	if err != nil {
-		panic(err.Error())
+		fmt.Println(err)
 	}
 
 	problems := parseLines(lines)
 	correct := 0
 	for i, problem := range problems {
-		fmt.Printf("Problem #%d: %s = \n", i+1, problem.q)
+		print("\033[H\033[2J")
+		fmt.Printf("[%d]  Answer Of:   %s = ", i+1, problem.q)
 
 		var answer string
 		_, _ = fmt.Scanf("%s\n", &answer)
@@ -73,7 +81,8 @@ func main() {
 			correct++
 		}
 	}
-	fmt.Printf("You scored %d out of %d.\n", correct, len(problems))
+
+	fmt.Printf("\nYou scored %d out of %d.\n", correct, len(problems))
 }
 
 func parseLines(lines [][]string) []problem {
@@ -85,9 +94,4 @@ func parseLines(lines [][]string) []problem {
 		}
 	}
 	return ret
-}
-
-func exit(msg string) {
-	fmt.Println(msg)
-	os.Exit(1)
 }
