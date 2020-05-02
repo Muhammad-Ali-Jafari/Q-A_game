@@ -3,10 +3,10 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"github.com/AlecAivazis/survey"
 	"os"
 	"strings"
-
-	"github.com/AlecAivazis/survey/v2"
+	"time"
 )
 
 type problem struct {
@@ -22,18 +22,19 @@ var qs = []*survey.Question{
 		Transform: survey.Title,
 	},
 	{
-		Name: "fileName",
+		Name: "game",
 		Prompt: &survey.Select{
 			Message: "Choose a game:",
 			Options: []string{"Math(easy)", "Math(medium)"},
+			Default: "Math(easy)",
 		},
 	},
 }
 
 func main() {
 	answers := struct {
-		Name     string
-		FileName string `survey:"color"`
+		Name string
+		Game string
 	}{}
 
 	err := survey.Ask(qs, &answers)
@@ -41,18 +42,18 @@ func main() {
 		fmt.Println(err.Error())
 		return
 	}
-
 	var questionFile string
-	switch answers.FileName {
+	switch answers.Game {
 	case "Math(easy)":
-		questionFile = "/home/mehrdad/Documents/Q-A_game/src/Q&A-game/easy_problems.csv"
+		questionFile = "/home/nvsh116/projects/back/Q-A_game/src/Q&A-game/easy_problems.csv"
 	case "Math(medium)":
-		questionFile = "/home/mehrdad/Documents/Q-A_game/src/Q&A-game/medium_problems.csv"
+		questionFile = "/home/nvsh116/projects/back/Q-A_game/src/Q&A-game/medium_problems.csv"
 	}
 
 	file, err := os.Open(questionFile)
 	if err != nil {
 		fmt.Println(err)
+		return
 	}
 	r := csv.NewReader(file)
 	lines, err := r.ReadAll()
@@ -63,22 +64,34 @@ func main() {
 
 	fmt.Printf("Please enter the timer(in seconds): ")
 
-	var enteredTime int
-	_, err = fmt.Scanf("%d", &enteredTime)
+	var timeLimit int
+	_, err = fmt.Scanf("%d", &timeLimit)
 	if err != nil {
 		fmt.Println(err)
+		return
 	}
 
 	problems := parseLines(lines)
+	timer := time.NewTimer(time.Duration(timeLimit) * time.Second)
 	correct := 0
-	for i, problem := range problems {
-		print("\033[H\033[2J")
-		fmt.Printf("[%d]  Answer Of:   %s = ", i+1, problem.q)
+problemLoop:
+	for i, p := range problems {
+		fmt.Printf("Problem #%d: %s = ", i+1, p.q)
+		answerCh := make(chan string)
+		go func() {
+			var answer string
+			fmt.Scanf("%s\n", &answer)
+			answerCh <- answer
+		}()
 
-		var answer string
-		_, _ = fmt.Scanf("%s\n", &answer)
-		if problem.a == answer {
-			correct++
+		select {
+		case <-timer.C:
+			fmt.Println()
+			break problemLoop
+		case answer := <-answerCh:
+			if strings.TrimSpace(answer) == p.a {
+				correct++
+			}
 		}
 	}
 
