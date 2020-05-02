@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-Netflix-go--expect" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-davecgh-go--spew" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-hinshun-vt10x" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-kballard-go--shellquote" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-kr-pty" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-mattn-go--colorable" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-mattn-go--isatty" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-mgutz-ansi" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-pmezard-go--difflib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---github.com-stretchr-testify" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---go.googlesource.com-sys" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pkg/dep/sources/https---go.googlesource.com-text" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/AlecAivazis/survey" vcs="Git" />
+  </component>
+</project>
