@@ -95,6 +95,8 @@ problemLoop:
 		}
 	}
 
+	fmt.Println("")
+	fmt.Printf(answers.Name + ",")
 	fmt.Printf("\nYou scored %d out of %d.\n", correct, len(problems))
 }
 

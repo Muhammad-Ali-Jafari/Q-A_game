@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88c9c55a-0613-46d1-8ba8-c252fe07719c" name="Default Changelist" comment="project finished">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="88c9c55a-0613-46d1-8ba8-c252fe07719c" name="Default Changelist" comment="build file added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Q&amp;A-game/Q&amp;A-game" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Q&amp;A-game/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q&amp;A-game/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,29 +147,30 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="project finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="project finished" />
+    <MESSAGE value="build file added" />
+    <option name="LAST_COMMIT_MESSAGE" value="build file added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="743" y="287" width="424" height="484" key="FileChooserDialogImpl" timestamp="1588415435043">
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
     <state x="743" y="287" width="424" height="484" key="FileChooserDialogImpl/0.27.1920.1006@0.27.1920.1006" timestamp="1588415435043" />
-    <state width="1874" height="332" key="GridCell.Tab.0.bottom" timestamp="1588415436205">
+    <state width="654" height="876" key="GridCell.Tab.0.bottom" timestamp="1588422437041">
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.bottom/0.27.1920.1006@0.27.1920.1006" timestamp="1588415436205" />
-    <state width="1874" height="332" key="GridCell.Tab.0.center" timestamp="1588415436205">
+    <state width="654" height="876" key="GridCell.Tab.0.bottom/0.27.1920.1006@0.27.1920.1006" timestamp="1588422437041" />
+    <state width="654" height="876" key="GridCell.Tab.0.center" timestamp="1588422437040">
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.center/0.27.1920.1006@0.27.1920.1006" timestamp="1588415436205" />
-    <state width="1874" height="332" key="GridCell.Tab.0.left" timestamp="1588415436204">
+    <state width="654" height="876" key="GridCell.Tab.0.center/0.27.1920.1006@0.27.1920.1006" timestamp="1588422437040" />
+    <state width="654" height="876" key="GridCell.Tab.0.left" timestamp="1588422437040">
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.left/0.27.1920.1006@0.27.1920.1006" timestamp="1588415436204" />
-    <state width="1874" height="332" key="GridCell.Tab.0.right" timestamp="1588415436205">
+    <state width="654" height="876" key="GridCell.Tab.0.left/0.27.1920.1006@0.27.1920.1006" timestamp="1588422437040" />
+    <state width="654" height="876" key="GridCell.Tab.0.right" timestamp="1588422437040">
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.right/0.27.1920.1006@0.27.1920.1006" timestamp="1588415436205" />
+    <state width="654" height="876" key="GridCell.Tab.0.right/0.27.1920.1006@0.27.1920.1006" timestamp="1588422437040" />
     <state width="1874" height="332" key="GridCell.Tab.1.bottom" timestamp="1588415436206">
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
@@ -189,10 +191,10 @@
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
     <state x="441" y="164" key="SettingsEditor/0.27.1920.1006@0.27.1920.1006" timestamp="1588414509551" />
-    <state x="555" y="265" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588414848302">
+    <state x="555" y="265" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588416202392">
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
-    <state x="555" y="265" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1920.1006@0.27.1920.1006" timestamp="1588414848302" />
+    <state x="555" y="265" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1920.1006@0.27.1920.1006" timestamp="1588416202392" />
     <state x="543" y="187" width="824" height="684" key="editAsTableFormatDialogDimension" timestamp="1588414490417">
       <screen x="0" y="27" width="1920" height="1006" />
     </state>
